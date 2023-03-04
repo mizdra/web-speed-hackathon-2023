@@ -15,11 +15,15 @@ export const itemList = () => css`
 `;
 
 export const itemList__desktop = () => css`
-  flex-direction: row;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
 `;
 
 export const itemList__mobile = () => css`
-  flex-direction: column;
+  @media not (min-width: 1024px) {
+    flex-direction: column;
+  }
 `;
 
 export const item = () => css`
