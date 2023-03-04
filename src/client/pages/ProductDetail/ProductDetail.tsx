@@ -20,7 +20,7 @@ import { normalizeCartItemCount } from '../../utils/normalize_cart_item';
 
 import * as styles from './ProductDetail.styles';
 
-export const ProductDetail: FC = () => {
+const ProductDetail: FC = () => {
   const { productId } = useParams();
 
   const { product } = useProduct(Number(productId));
@@ -83,3 +83,4 @@ export const ProductDetail: FC = () => {
     </>
   );
 };
+export default ProductDetail;

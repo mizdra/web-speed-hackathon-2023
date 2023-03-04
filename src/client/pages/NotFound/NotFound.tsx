@@ -7,7 +7,7 @@ import { loadFonts } from '../../utils/load_fonts';
 
 import * as styles from './NotFound.styles';
 
-export const NotFound: FC = () => {
+const NotFound: FC = () => {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
@@ -39,3 +39,5 @@ export const NotFound: FC = () => {
     </>
   );
 };
+
+export default NotFound;
