@@ -1,6 +1,7 @@
 import path from 'node:path';
 
 import react from '@vitejs/plugin-react';
+import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import { ViteEjsPlugin } from 'vite-plugin-ejs';
 import topLevelAwait from 'vite-plugin-top-level-await';
@@ -36,6 +37,7 @@ export default defineConfig(async () => {
         videos,
       }),
       splitVendorChunkPlugin(),
+      visualizer(),
     ],
   };
 });
