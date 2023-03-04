@@ -19,7 +19,7 @@ export function useActiveOffer(product: ProductFragmentResponse | undefined) {
     }, 1000);
 
     return () => {
-      clearInterval(timer);
+      clearTimeout(timer);
     };
   }, [product]);
 
