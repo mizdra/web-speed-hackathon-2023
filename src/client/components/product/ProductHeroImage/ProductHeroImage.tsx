@@ -32,7 +32,7 @@ export const ProductHeroImage: FC<Props> = memo(({ product, title }) => {
               <div className={styles.container()}>
                 <AspectRatio ratioHeight={9} ratioWidth={16}>
                   {/* TODO: サイズ指定したいかも? */}
-                  {<img className={styles.image()} loading="lazy" src={thumbnailFile.filename} />}
+                  {<img className={styles.image()} loading="eager" src={thumbnailFile.filename} />}
                 </AspectRatio>
 
                 <div className={styles.overlay()}>
