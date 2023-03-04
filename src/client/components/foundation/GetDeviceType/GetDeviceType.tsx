@@ -1,4 +1,3 @@
-import { css } from '@emotion/css';
 import type { ReactNode } from 'react';
 import { Component } from 'react';
 
@@ -45,32 +44,4 @@ export class GetDeviceType extends Component<Props> {
       deviceType: this._windowWidth >= 1024 ? DeviceType.DESKTOP : DeviceType.MOBILE,
     });
   }
-}
-
-export const mobileOnlyContainer = () => css`
-  @media not (min-width: 1024px) {
-    display: none;
-  }
-`;
-
-type MobileOnlyProps = {
-  children: React.ReactNode;
-};
-
-export function MobileOnly({ children }: MobileOnlyProps) {
-  return <div className={mobileOnlyContainer()}>{children}</div>;
-}
-
-export const desktopOnlyContainer = () => css`
-  @media (min-width: 1024px) {
-    display: none;
-  }
-`;
-
-type DesktopOnlyProps = {
-  children: React.ReactNode;
-};
-
-export function DesktopOnly({ children }: DesktopOnlyProps) {
-  return <div className={desktopOnlyContainer()}>{children}</div>;
 }
