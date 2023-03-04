@@ -1,5 +1,4 @@
 import { useFormik } from 'formik';
-import { cloneDeep } from 'lodash-es';
 import type { ChangeEventHandler, FC } from 'react';
 import zipcodeJa from 'zipcode-ja';
 
@@ -35,7 +34,7 @@ export const OrderForm: FC<Props> = ({ onSubmit }) => {
 
     const zipCode = event.target.value;
     // TODO: structuredClone に置き換えられないか?
-    const address = [...(cloneDeep(zipcodeJa)[zipCode]?.address ?? [])];
+    const address = [...(zipcodeJa[zipCode]?.address ?? [])];
     const prefecture = address.shift();
     const city = address.join(' ');
 
