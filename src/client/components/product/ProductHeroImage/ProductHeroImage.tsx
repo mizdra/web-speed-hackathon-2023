@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import _ from 'lodash';
+import { isEqual } from 'lodash-es';
 import { memo } from 'react';
 import type { FC } from 'react';
 
@@ -15,6 +15,7 @@ type Props = {
   title: string;
 };
 
+// TODO: isEqual で比較しなくても良いかも?
 export const ProductHeroImage: FC<Props> = memo(({ product, title }) => {
   const thumbnailFile = product.media.find((productMedia) => productMedia.isThumbnail)?.file;
 
@@ -53,6 +54,6 @@ export const ProductHeroImage: FC<Props> = memo(({ product, title }) => {
       </Anchor>
     </WidthRestriction>
   );
-}, _.isEqual);
+}, isEqual);
 
 ProductHeroImage.displayName = 'ProductHeroImage';
