@@ -4,7 +4,6 @@ import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import { ViteEjsPlugin } from 'vite-plugin-ejs';
-import topLevelAwait from 'vite-plugin-top-level-await';
 import wasm from 'vite-plugin-wasm';
 
 import { getFileList } from './tools/get_file_list';
@@ -32,7 +31,6 @@ export default defineConfig(async () => {
     plugins: [
       react(),
       wasm(),
-      topLevelAwait(),
       ViteEjsPlugin({
         module: '/src/client/index.tsx',
         title: '買えるオーガニック',
