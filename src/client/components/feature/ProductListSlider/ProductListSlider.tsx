@@ -15,7 +15,7 @@ type Props = {
 export const ProductListSlider: FC<Props> = ({ featureSection }) => {
   const products = featureSection.items.map((item) => item.product);
 
-  const { containerElementRef, setSlideIndex, slideIndex, visibleItemCount } = useSlider({
+  const { containerElementRef, setSlideIndex, slideIndex, visibleItemCount } = useSlider<HTMLUListElement>({
     items: products,
   });
 

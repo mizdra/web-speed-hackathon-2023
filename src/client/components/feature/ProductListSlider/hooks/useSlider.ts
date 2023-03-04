@@ -4,8 +4,8 @@ import { throttle } from 'throttle-debounce';
 
 const ITEM_MIN_WIDTH = 250 as const;
 
-export const useSlider = ({ items }: { items: unknown[] }) => {
-  const [containerElementRef, { width }] = useMeasure();
+export const useSlider = <T extends Element>({ items }: { items: unknown[] }) => {
+  const [containerElementRef, { width }] = useMeasure<T>();
 
   const [visibleItemCount, setVisibleItemCount] = useState(1);
   const [_slideIndex, setSlideIndex] = useState(0);
