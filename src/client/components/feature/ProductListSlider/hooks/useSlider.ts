@@ -18,10 +18,11 @@ export const useSlider = ({ items }: { items: unknown[] }) => {
     });
 
     let timer = (function tick() {
-      return setImmediate(() => {
+      // TODO: もうちょっといい方法があるはず
+      return setTimeout(() => {
         updateVisibleItemCount();
         timer = tick();
-      });
+      }, 1000);
     })();
 
     return () => {
