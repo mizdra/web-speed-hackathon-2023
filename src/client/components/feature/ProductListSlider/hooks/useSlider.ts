@@ -4,6 +4,7 @@ import { throttle } from 'throttle-debounce';
 const ITEM_MIN_WIDTH = 250 as const;
 
 export const useSlider = ({ items }: { items: unknown[] }) => {
+  console.log(items);
   const containerElementRef = useRef<HTMLUListElement>(null);
   const [visibleItemCount, setVisibleItemCount] = useState(1);
   const [_slideIndex, setSlideIndex] = useState(0);
@@ -18,14 +19,15 @@ export const useSlider = ({ items }: { items: unknown[] }) => {
     });
 
     let timer = (function tick() {
-      return setImmediate(() => {
+      // TODO: もうちょっといい方法があるはず
+      return setTimeout(() => {
         updateVisibleItemCount();
         timer = tick();
-      });
+      }, 1000);
     })();
 
     return () => {
-      clearImmediate(timer);
+      clearTimeout(timer);
     };
   }, []);
 

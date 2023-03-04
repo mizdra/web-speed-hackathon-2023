@@ -3,9 +3,10 @@ import type { FC } from 'react';
 import { memo } from 'react';
 
 import type { FeatureSectionFragmentResponse } from '../../../graphql/fragments';
-import { DeviceType, GetDeviceType } from '../../foundation/GetDeviceType';
 import { ProductGridList } from '../ProductGridList';
 import { ProductListSlider } from '../ProductListSlider';
+
+import * as styles from './ProductList.styles';
 
 type Props = {
   featureSection: FeatureSectionFragmentResponse;
@@ -13,18 +14,14 @@ type Props = {
 
 export const ProductList: FC<Props> = memo(({ featureSection }) => {
   return (
-    <GetDeviceType>
-      {({ deviceType }) => {
-        switch (deviceType) {
-          case DeviceType.DESKTOP: {
-            return <ProductListSlider featureSection={featureSection} />;
-          }
-          case DeviceType.MOBILE: {
-            return <ProductGridList featureSection={featureSection} />;
-          }
-        }
-      }}
-    </GetDeviceType>
+    <>
+      <div className={styles.list__desktop()}>
+        <ProductListSlider featureSection={featureSection} />
+      </div>
+      <div className={styles.list__mobile()}>
+        <ProductGridList featureSection={featureSection} />
+      </div>
+    </>
   );
 }, _.isEqual);
 
