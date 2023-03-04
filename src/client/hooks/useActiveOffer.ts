@@ -7,8 +7,8 @@ export function useActiveOffer(product: ProductFragmentResponse | undefined) {
   const [activeOffer, setActiveOffer] = useState<LimitedTimeOfferFragmentResponse | undefined>(undefined);
 
   useEffect(() => {
-    // TODO: もうちょっといい方法があるはず
-    const timer = setTimeout(() => {
+    // 雑に1秒おきに更新する
+    const timer = setInterval(() => {
       if (!product) {
         setActiveOffer(undefined);
         return;
@@ -19,7 +19,7 @@ export function useActiveOffer(product: ProductFragmentResponse | undefined) {
     }, 1000);
 
     return () => {
-      clearTimeout(timer);
+      clearInterval(timer);
     };
   }, [product]);
 

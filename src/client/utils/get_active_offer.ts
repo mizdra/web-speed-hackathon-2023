@@ -13,3 +13,20 @@ export function getActiveOffer(
 
   return activeOffer;
 }
+
+// export function getOfferUpdateTime(offers: LimitedTimeOfferFragmentResponse[]): number | undefined {
+//   const activeOffer = getActiveOffer(offers);
+
+//   if (activeOffer === undefined) {
+//     const nextOffer = offers
+//       // 昇順にソート
+//       .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime())
+//       // 未来のものだけに絞る
+//       .find((offer) => new Date(offer.startDate).getTime() >= new Date().getTime());
+//     // 一応 + 500ms しておく
+//     return nextOffer ? new Date(nextOffer.startDate).getTime() + 500 : undefined;
+//   } else {
+//     // 一応 + 500ms しておく
+//     return new Date(activeOffer.endDate).getTime() + 500;
+//   }
+// }
