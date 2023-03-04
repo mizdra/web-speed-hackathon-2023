@@ -1,3 +1,6 @@
+# fly.toml file generated for mizdra-web-speed-hackathon-2023 on 2023-03-04T11:23:22+09:00
+
+app = "mizdra-web-speed-hackathon-2023"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
