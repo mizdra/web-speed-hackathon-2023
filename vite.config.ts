@@ -25,6 +25,9 @@ export default defineConfig(async () => {
   return {
     build: {
       minify: true,
+      // デバッグのために sourcemap を生成
+      // TODO: 後で消す
+      sourcemap: true,
     },
     plugins: [
       react(),
