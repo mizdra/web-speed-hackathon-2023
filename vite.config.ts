@@ -25,7 +25,6 @@ export default defineConfig(async () => {
   return {
     build: {
       minify: true,
-      target: 'esnext',
     },
     plugins: [
       react(),
