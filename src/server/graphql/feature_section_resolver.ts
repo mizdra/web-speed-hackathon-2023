@@ -1,18 +1,21 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FeatureItem } from '../../model/feature_item';
 import type { FeatureSection } from '../../model/feature_section';
 import { dataSource } from '../data_source';
 
+import { FeatureItemLoader } from './dataloader';
 import type { GraphQLModelResolver } from './model_resolver';
 
 export const featureSectionResolver: GraphQLModelResolver<FeatureSection> = {
   items: (parent) => {
-    return dataSource.manager.find(FeatureItem, {
-      relations: {
-        product: true,
-      },
-      where: {
-        section: parent,
-      },
-    });
+    return FeatureItemLoader.findByFeatureSectionId.load(parent.id);
+    // return dataSource.manager.find(FeatureItem, {
+    //   relations: {
+    //     product: true,
+    //   },
+    //   where: {
+    //     section: parent,
+    //   },
+    // });
   },
 };
