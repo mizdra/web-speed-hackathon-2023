@@ -17,13 +17,15 @@ async function unwrap<T>(value: Promise<T | undefined>): Promise<T> {
 }
 
 export const userResolver: GraphQLModelResolver<User> = {
-  orders: (parent) => {
-    return OrderLoader.findByUser.load(parent.id);
-    // return dataSource.manager.find(Order, {
-    //   where: {
-    //     user: parent,
-    //   },
-    // });
+  orders: async (parent) => {
+    // const orders = await OrderLoader.findByUser.load(parent.id);
+    return dataSource.manager.find(Order, {
+      where: {
+        user: parent,
+      },
+    });
+    // console.log({ orders });
+    // return orders;
   },
   profile: async (parent) => {
     return unwrap(ProfileLoader.findOneByUser.load(parent.id));
